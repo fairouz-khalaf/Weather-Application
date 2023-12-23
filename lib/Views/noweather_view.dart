@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/widgets/custom_button.dart';
 
 class NoWeather_View extends StatefulWidget {
   const NoWeather_View({super.key});
@@ -10,19 +11,26 @@ class NoWeather_View extends StatefulWidget {
 class _NoWeather_ViewState extends State<NoWeather_View> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Center(
-          child: Text(
-        "There is No Weather NOW ! ",
-        style: TextStyle(fontWeight: FontWeight.bold),
-      )),
-      SizedBox(
+      Container(
+        width: 360,
+        height: 400,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+            borderRadius:
+                BorderRadius.circular(15) // Adjust the radius as needed
+            ),
+        child: Image.asset(
+          'assets/weather2-removebg-preview.png',
+          fit: BoxFit.cover,
+        ),
+      ),
+      const SizedBox(
         height: 15,
       ),
-      Text(
-        'Search Now! 🔎',
-        style: TextStyle(fontWeight: FontWeight.bold),
+      const CustomButton(
+        text: "Get Started",
       )
     ]));
   }
